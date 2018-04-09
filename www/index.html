@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<title>monono | state</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+html, body, iframe {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+body {
+  background-color: '#000';
+}
+</style>
+</head>
+<body>
+<iframe></iframe>
+<script>
+'use strict';
+
+var random = function (min, max) {
+  if (max == null) {
+    max = min;
+    min = 0;
+  }
+  return min + Math.floor(Math.random() * (max - min + 1));
+};
+
+var loadWork = function () {
+  var iframe = document.getElementsByTagName('iframe')[0];
+
+  iframe.style.display = 'none';
+  iframe.src = '/' + random(1, 3) + '/';
+
+  iframe.onload = function () {
+    iframe.style.display = 'block';
+    iframe.onload = null;
+    window.setTimeout(loadWork, random(1, 20) * 1000);
+  };
+};
+
+window.onload = loadWork;
+</script>
+</body>
+</html>

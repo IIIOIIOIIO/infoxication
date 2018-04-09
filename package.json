@@ -1,0 +1,11 @@
+{
+  "name": "infoxicacion",
+  "version": "1.0.0",
+  "author": "Lupo Montero",
+  "license": "UNLICENSED",
+  "private": true,
+  "home": "https://infoxication-de2d5.firebaseapp.com",
+  "scripts": {
+    "deploy": "firebase deploy --project infoxication-de2d5"
+  }
+}
